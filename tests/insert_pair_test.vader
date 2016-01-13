@@ -1,0 +1,89 @@
+Given:
+  the_count = len
+Do (Adding a single opening parentheses):
+  GA(
+Expect (Adds a single closing parentheses):
+  the_count = len()
+-----
+Given:
+  usernames
+Do (Adding a single opening [):
+  GA[
+Expect (Adds a single closing ]):
+  usernames[]
+-----
+Given:
+  someObjects =
+Do (Adding a single opening {):
+  GA {
+Expect (Adds a single closing }):
+  someObjects = {}
+-----
+Given:
+  name =
+Do (Adding a single '):
+  GA '
+Expect (Adds a single '):
+  name = ''
+-----
+Given:
+  name =
+Do (Adding a single "):
+  GA "
+Expect (Adds a single "):
+  name = ""
+-----
+Given:
+  someBackTics =
+Do (Adding a single `):
+  GA `
+Expect (Adds a single `):
+  someBackTics = ``
+-----
+Given:
+  Stuff:
+Do (Adding an escaped '):
+  GA \'
+Expect (Does not add closing '):
+  Stuff: \'
+-----
+Given:
+  Stuff:
+Do (Adding an escaped "):
+  GA \"
+Expect (Does not add closing "):
+  Stuff: \"
+-----
+Given:
+  someVar =
+Do (Adding multiple brackets):
+  GA ([{
+Expect (Does not add closing "):
+  someVar = ([{}])
+-----
+Given:
+  ''
+Do (Adding a third '):
+  GA'
+Expect (Results in 2 sets of '''):
+  ''''''
+-----
+Given:
+  ""
+Do (Adding a third "):
+  GA"
+Expect (Results in 2 sets of """):
+  """"""
+-----
+Given:
+  ``
+Do (Adding a third `):
+  GA`
+Expect (Results in 2 sets of ```):
+  ``````
+-----
+Given vim:
+Do (In vim files " is not matched):
+  GA"
+Expect (Only one "):
+  "

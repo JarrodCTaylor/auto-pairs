@@ -1,0 +1,8 @@
+Given:
+  someStuff = {}
+Do (Pressing return between braces):
+  $i\<Enter>
+Expect (Adds an empty line):
+  someStuff = {
+
+  }

@@ -1,0 +1,58 @@
+Given:
+  the_count = len()
+Do (Deleting an opening parenthesis):
+  G$i\<Backspace>
+Expect (Deletes the closing pair):
+  the_count = len
+-----
+Given:
+  the_count[]
+Do (Deleting an opening [):
+  G$i\<Backspace>
+Expect (Deletes the closing pair):
+  the_count
+-----
+Given:
+  '{}'
+Do (Deleting an opening {):
+  G$hi\<Backspace>
+Expect (Deletes the closing pair):
+  ''
+-----
+Given:
+  example['']
+Do (Deleting an '):
+  G$hi\<Backspace>
+Expect (Deletes the pair):
+  example[]
+-----
+Given:
+  example[""]
+Do (Deleting an "):
+  G$hi\<Backspace>
+Expect (Deletes the pair):
+  example[]
+-----
+Given:
+  example[``]
+Do (Deleting an `):
+  G$hi\<Backspace>
+Expect (Deletes the pair):
+  example[]
+-----
+Given:
+  stuff[
+  ]
+  moreStuff = []
+Do (Deleting and opening [ on a different line):
+  A\<Backspace>
+Expect (Deletes the pair):
+  stuff
+  moreStuff = []
+-----
+Given:
+  "\""
+Do (Deleting an escaped "):
+  $i\<Backspace>
+Expect (Does not delete anything else):
+  "\"
