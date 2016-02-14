@@ -23,6 +23,15 @@ function! vim_reflection#ReflectionsInsert(key)
   let open = a:key
   let close = g:Reflections[open]
 
+  " Don't reflect if odd number of ticks on line
+  if  index(['"', "'", '`'], "'") != -1
+    let list_of_current_line = split(current_line, '\zs')
+    let key_count = count(list_of_current_line, a:key)
+    if key_count % 2 != 0 && key_count != 0
+        return open."\<Right>"
+    end
+  end
+
   " This is for keys that are the same opening and closing `, ", '
   if character_under_cursor == close && open == close
     return "\<Right>"

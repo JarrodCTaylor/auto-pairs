@@ -82,6 +82,27 @@ Do (Adding a third `):
 Expect (Results in 2 sets of ```):
   ``````
 -----
+Given:
+  An odd number of "these
+Do (Adding another tick when an odd number exists):
+  GA"
+Expect (Only adds one new tick):
+  An odd number of "these"
+-----
+Given:
+  An odd number of 'these
+Do (Adding another tick when an odd number exists):
+  GA'
+Expect (Only adds one new tick):
+  An odd number of 'these'
+-----
+Given:
+  An odd number of `these
+Do (Adding another tick when an odd number exists):
+  GA`
+Expect (Only adds one new tick):
+  An odd number of `these`
+-----
 Given vim:
 Do (In vim files " is not matched):
   GA"
