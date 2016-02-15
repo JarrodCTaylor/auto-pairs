@@ -58,8 +58,15 @@ Given:
   someVar =
 Do (Adding multiple brackets):
   GA ([{
-Expect (Does not add closing "):
+Expect (Correctly at its closing reflections):
   someVar = ([{}])
+-----
+Given:
+  ()
+Do (Adding multiple brackets of the same type):
+  G$i(
+Expect (Correctly adds additional closing bracket):
+  (())
 -----
 Given:
   ''

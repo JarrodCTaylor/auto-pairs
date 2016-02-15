@@ -24,7 +24,7 @@ function! vim_reflection#ReflectionsInsert(key)
   let close = g:Reflections[open]
 
   " Don't reflect if odd number of ticks on line
-  if  index(['"', "'", '`'], "'") != -1
+  if  index(['"', "'", '`'], a:key) != -1
     let list_of_current_line = split(current_line, '\zs')
     let key_count = count(list_of_current_line, a:key)
     if key_count % 2 != 0 && key_count != 0
