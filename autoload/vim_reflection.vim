@@ -53,6 +53,10 @@ function! vim_reflection#ReflectionsInsert(key)
     end
   end
 
+  if character_under_cursor =~ '[a-zA-Z]'
+      return a:key
+  end
+
   return open.close."\<Left>"
 endfunction
 

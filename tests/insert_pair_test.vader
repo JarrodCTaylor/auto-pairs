@@ -115,3 +115,10 @@ Do (In vim files " is not matched):
   GA"
 Expect (Only one "):
   "
+-----
+Given:
+  some example text
+Do (Do not insert closer when next to text):
+  wi(
+Expect (No closer was added):
+  some (example text
