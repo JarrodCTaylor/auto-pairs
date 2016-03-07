@@ -28,7 +28,7 @@ function! vim_reflection#ReflectionsInsert(key)
     let list_of_current_line = split(current_line, '\zs')
     let key_count = count(list_of_current_line, a:key)
     if key_count % 2 != 0 && key_count != 0
-        return open."\<Right>"
+        return open
     end
   end
 
